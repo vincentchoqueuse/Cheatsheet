@@ -1,0 +1,464 @@
+
+<!DOCTYPE html>
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transfer Function List &#8212; Documentation cheatsheet </title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/blank.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Poles/Zeros of 2nd order systems" href="poles_second_order.html" />
+    <link rel="prev" title="Summary" href="summary.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="fr">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../index.html">
+  <img src="../_static/logo.svg" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../getting_started/index.html">
+  Getting Started
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../S0_math/index.html">
+  S0_math
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../S1_algo/index.html">
+  S1_algo
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="index.html">
+  S4_elec
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../S5_signal/index.html">
+  S5_signal
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../S6_asserv/index.html">
+  S6_asserv
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../S6_stats/index.html">
+  S6_stats
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/vincentchoqueuse/ENIB_cheatsheet" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contents:
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="summary.html">
+   Summary
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Transfer Function List
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="poles_second_order.html">
+   Poles/Zeros of 2nd order systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="initial_final_values.html">
+   Limit values for 2nd order systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="filter_transformation.html">
+   Filter Transformation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="circuits_analysis.html">
+   Circuit Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="circuits_list.html">
+   Circuit List
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cheatsheet.html">
+   Cheatsheet
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#premier-ordre">
+   Premier ordre
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#passe-bas-lp">
+     Passe-bas (LP)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#passe-haut-hp">
+     Passe-haut (HP)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#second-ordre">
+   Second Ordre
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Passe-bas (LP)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#passe-bande-bp">
+     Passe-bande (BP)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Passe-haut (HP)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rejecteur-notch">
+     Rejecteur (Notch)
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="transfer-function-list">
+<h1>Transfer Function List<a class="headerlink" href="#transfer-function-list" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="premier-ordre">
+<h2>Premier ordre<a class="headerlink" href="#premier-ordre" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="passe-bas-lp">
+<h3>Passe-bas (LP)<a class="headerlink" href="#passe-bas-lp" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="math notranslate nohighlight">
+\[H(p)=\frac{T_0}{\tau p+1}​\]</div>
+<ul class="simple">
+<li><p>gain statique: <span class="math notranslate nohighlight">\(T_0&gt;0\)</span>,</p></li>
+<li><p>constante de temps (en s): <span class="math notranslate nohighlight">\(\tau \ge 0\)</span> (en s),</p></li>
+</ul>
+<p><strong>Réponse Indicielle</strong></p>
+<div class="figure align-default">
+<img alt="../_images/transfer_function_list-1.png" class="plot-directive" src="../_images/transfer_function_list-1.png" />
+</div>
+<ul class="simple">
+<li><p>Valeur Finale: <span class="math notranslate nohighlight">\(s(\infty)=T_0E\)</span>,</p></li>
+<li><p>Valeur Initiale: <span class="math notranslate nohighlight">\(s(0)=0\)</span>,</p></li>
+<li><p>Temps de réponse à 95%: <span class="math notranslate nohighlight">\(t_r=3\tau\)</span>,</p></li>
+</ul>
+<p><strong>Comportement Fréquentiel</strong></p>
+<ul class="simple">
+<li><p>Basse-Fréquences: <span class="math notranslate nohighlight">\(H(j\omega)\approx T_0\)</span>,</p></li>
+<li><p>pulsation de coupure à -3dB: <span class="math notranslate nohighlight">\(\omega_c = \frac{1}{\tau}\)</span> (rad/s).</p></li>
+</ul>
+<div class="figure align-default">
+<img alt="../_images/transfer_function_list-2.png" class="plot-directive" src="../_images/transfer_function_list-2.png" />
+</div>
+</div>
+<div class="section" id="passe-haut-hp">
+<h3>Passe-haut (HP)<a class="headerlink" href="#passe-haut-hp" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="math notranslate nohighlight">
+\[H(p)=\frac{T_m\tau p}{\tau p+1}​\]</div>
+<ul class="simple">
+<li><p>gain haute-fréquence: <span class="math notranslate nohighlight">\(T_m &gt;0\)</span>,</p></li>
+<li><p>constante de temps (en s): <span class="math notranslate nohighlight">\(\tau \ge 0\)</span> constante de temps (en s).</p></li>
+</ul>
+<p><strong>Réponse Indicielle</strong></p>
+<div class="figure align-default">
+<img alt="../_images/transfer_function_list-3.png" class="plot-directive" src="../_images/transfer_function_list-3.png" />
+</div>
+<p><strong>Comportement Fréquentiel</strong></p>
+<ul class="simple">
+<li><p>pulsation de coupure à -3dB: <span class="math notranslate nohighlight">\(\omega_c = \frac{1}{\tau}\)</span> (rad/s).</p></li>
+</ul>
+<div class="figure align-default">
+<img alt="../_images/transfer_function_list-4.png" class="plot-directive" src="../_images/transfer_function_list-4.png" />
+</div>
+</div>
+</div>
+<div class="section" id="second-ordre">
+<h2>Second Ordre<a class="headerlink" href="#second-ordre" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="id1">
+<h3>Passe-bas (LP)<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="math notranslate nohighlight">
+\[H(p)=\frac{T_0}{\frac{1}{\omega_0^2}p^2+\frac{2m}{\omega_0}p+1}​\]</div>
+<ul class="simple">
+<li><p>gain statique: <span class="math notranslate nohighlight">\(T_0&gt;0\)</span>,</p></li>
+<li><p>pulsation propre: <span class="math notranslate nohighlight">\(\omega_0\)</span> (rad/s),</p></li>
+<li><p>coefficient d’amortissement: <span class="math notranslate nohighlight">\(m\)</span>.</p></li>
+</ul>
+<p><strong>Réponse Indicielle</strong></p>
+<div class="figure align-default">
+<img alt="../_images/transfer_function_list-5.png" class="plot-directive" src="../_images/transfer_function_list-5.png" />
+</div>
+<p><strong>Comportement Fréquentiel</strong></p>
+<ul class="simple">
+<li><p>Valeur à la pulsation propre: <span class="math notranslate nohighlight">\(H(j\omega_0)=\frac{T_0}{2jm}\)</span>,</p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(m&lt;0.7\)</span>, présence d’une résonance à la pulsation <span class="math notranslate nohighlight">\(\omega_r=\omega_0\sqrt{1-2m^2}\)</span> [rad/s]</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[|H(j\omega_r)|=\frac{T_0}{2m\sqrt{1-m^2}}\]</div>
+<div class="figure align-default">
+<img alt="../_images/transfer_function_list-6.png" class="plot-directive" src="../_images/transfer_function_list-6.png" />
+</div>
+</div>
+<div class="section" id="passe-bande-bp">
+<h3>Passe-bande (BP)<a class="headerlink" href="#passe-bande-bp" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="math notranslate nohighlight">
+\[H(p)=\frac{\frac{2mT_m}{\omega_0}p}{\frac{1}{\omega_0^2}p^2+\frac{2m}{\omega_0}p+1}​\]</div>
+<ul class="simple">
+<li><p>gain maximum: <span class="math notranslate nohighlight">\(T_m &gt; 0\)</span>,</p></li>
+<li><p>pulsation propre: <span class="math notranslate nohighlight">\(\omega_0\)</span> (rad/s),</p></li>
+<li><p>coefficient d’amortissement: <span class="math notranslate nohighlight">\(m\)</span>.</p></li>
+</ul>
+<p><strong>Réponse Indicielle</strong></p>
+<div class="figure align-default">
+<img alt="../_images/transfer_function_list-7.png" class="plot-directive" src="../_images/transfer_function_list-7.png" />
+</div>
+<p><strong>Comportement Fréquentiel</strong></p>
+<ul class="simple">
+<li><p>Valeur à la pulsation propre: <span class="math notranslate nohighlight">\(H(j\omega_0)=T_m\)</span>,</p></li>
+<li><p>Intersection des asymptotes de module: <span class="math notranslate nohighlight">\(T_i=2m T_m\)</span>,</p></li>
+<li><p>Largeur de la bande passante à -3dB: <span class="math notranslate nohighlight">\(\Delta \omega =2m \omega_0\)</span> [rad/s].</p></li>
+</ul>
+<div class="figure align-default">
+<img alt="../_images/transfer_function_list-8.png" class="plot-directive" src="../_images/transfer_function_list-8.png" />
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Passe-haut (HP)<a class="headerlink" href="#id2" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="math notranslate nohighlight">
+\[H(p)=\frac{\frac{T_{\infty}}{\omega_0^2}p^2}{\frac{1}{\omega_0^2}p^2+\frac{2m}{\omega_0}p+1}​\]</div>
+<ul class="simple">
+<li><p>gain haute-fréquence: <span class="math notranslate nohighlight">\(T_{\infty}\)</span>,</p></li>
+<li><p>pulsation propre: <span class="math notranslate nohighlight">\(\omega_0\)</span> (rad/s),</p></li>
+<li><p>coefficient d’amortissement: <span class="math notranslate nohighlight">\(m\)</span>.</p></li>
+</ul>
+<p><strong>Réponse Indicielle</strong></p>
+<div class="figure align-default">
+<img alt="../_images/transfer_function_list-9.png" class="plot-directive" src="../_images/transfer_function_list-9.png" />
+</div>
+<p><strong>Comportement Fréquentiel</strong></p>
+<ul class="simple">
+<li><p>Valeur à la pulsation propre: <span class="math notranslate nohighlight">\(H(j\omega_0)=j\frac{T_{\infty}}{2m}\)</span>,</p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(m&lt;0.7\)</span>, présence d’une résonance à la pulsation <span class="math notranslate nohighlight">\(\omega_r=\omega_0/\sqrt{1-2m^2}\)</span> [rad/s]</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[|H(j\omega_r)|=\frac{T_{\infty}}{2m\sqrt{1-m^2}}\]</div>
+<div class="figure align-default">
+<img alt="../_images/transfer_function_list-10.png" class="plot-directive" src="../_images/transfer_function_list-10.png" />
+</div>
+</div>
+<div class="section" id="rejecteur-notch">
+<h3>Rejecteur (Notch)<a class="headerlink" href="#rejecteur-notch" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="math notranslate nohighlight">
+\[H(p)=\frac{T_0\left(\frac{1}{\omega_0^2}p^2+1\right)}{\frac{1}{\omega_0^2}p^2+\frac{2m}{\omega_0}p+1}​\]</div>
+<ul class="simple">
+<li><p>gain maximum: <span class="math notranslate nohighlight">\(T_0\)</span>,</p></li>
+<li><p>pulsation propre: <span class="math notranslate nohighlight">\(\omega_0\)</span> (rad/s),</p></li>
+<li><p>coefficient d’amortissement: <span class="math notranslate nohighlight">\(m\)</span>.</p></li>
+</ul>
+<p><strong>Réponse Indicielle</strong></p>
+<div class="figure align-default">
+<img alt="../_images/transfer_function_list-11.png" class="plot-directive" src="../_images/transfer_function_list-11.png" />
+</div>
+<p><strong>Comportement Fréquentiel</strong></p>
+<ul class="simple">
+<li><p>Valeur à la pulsation propre: <span class="math notranslate nohighlight">\(H(j\omega_0)=0\)</span>,</p></li>
+<li><p>Largeur de la bande rejetée à -3dB: <span class="math notranslate nohighlight">\(\Delta \omega =2m \omega_0\)</span> [rad/s].</p></li>
+</ul>
+<div class="figure align-default">
+<img alt="../_images/transfer_function_list-12.png" class="plot-directive" src="../_images/transfer_function_list-12.png" />
+</div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2021, V. Choqueuse.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.2.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

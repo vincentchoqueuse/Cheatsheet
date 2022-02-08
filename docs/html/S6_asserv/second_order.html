@@ -1,0 +1,462 @@
+
+<!DOCTYPE html>
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Systèmes de 2nd ordre (Continus) &#8212; Documentation cheatsheet </title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/blank.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Diagrammes de Black Nichols (Continus)" href="nichols.html" />
+    <link rel="prev" title="Systèmes de 1er ordre (Continus)" href="first_order.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="fr">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../index.html">
+  <img src="../_static/logo.svg" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../getting_started/index.html">
+  Getting Started
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../S0_math/index.html">
+  S0_math
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../S1_algo/index.html">
+  S1_algo
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../S4_elec/index.html">
+  S4_elec
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../S5_signal/index.html">
+  S5_signal
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="index.html">
+  S6_asserv
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../S6_stats/index.html">
+  S6_stats
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/vincentchoqueuse/ENIB_cheatsheet" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contents:
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="summary.html">
+   Summary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="slit.html">
+   Systèmes SLIT (Continus)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="first_order.html">
+   Systèmes de 1er ordre (Continus)
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Systèmes de 2nd ordre (Continus)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nichols.html">
+   Diagrammes de Black Nichols (Continus)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nichols2.html">
+   Correction PI (Continus)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cheatsheet.html">
+   Cheatsheet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="links.html">
+   Links
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modelisation">
+   Modélisation
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#poles">
+     Pôles
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reponse-indicielle">
+   Réponse Indicielle
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cas-ou-m-1">
+     Cas où
+     <span class="math notranslate nohighlight">
+      \(m&gt;1\)
+     </span>
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Cas où
+     <span class="math notranslate nohighlight">
+      \(m&lt;1\)
+     </span>
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reponse-frequentielle">
+   Réponse Fréquentielle
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#module">
+     Module
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="systemes-de-2nd-ordre-continus">
+<h1>Systèmes de 2nd ordre (Continus)<a class="headerlink" href="#systemes-de-2nd-ordre-continus" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="modelisation">
+<h2>Modélisation<a class="headerlink" href="#modelisation" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour un système passe-bas linéaire d’ordre 2, le lien entre l’entrée et la sortie peut être régit par une équation différentielle de second ordre à coefficients constants.</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{\omega_n^2}\frac{d^2 s(t)}{dt^2}+\frac{2m}{\omega_n}\frac{d s(t)}{dt}+s(t)=Ke(t)\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(K\ge 0\)</span> : gain statique</p></li>
+<li><p><span class="math notranslate nohighlight">\(m \ge 0\)</span> : coefficient d’amortissement</p></li>
+<li><p><span class="math notranslate nohighlight">\(\omega_n\)</span> : pulsation propre (en rad/s)</p></li>
+</ul>
+<p>La fonction de transfert d’un système passe-bas de second ordre est donnée par :</p>
+<div class="math notranslate nohighlight">
+\[H(p)=\frac{K}{\frac{1}{\omega_n^2}p^2+\frac{2m}{\omega_n}p+1}\]</div>
+<div class="section" id="poles">
+<h3>Pôles<a class="headerlink" href="#poles" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="figure align-default">
+<img alt="../_images/second_order-1.png" class="plot-directive" src="../_images/second_order-1.png" />
+</div>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Cas où <span class="math notranslate nohighlight">\(m&gt;1\)</span>:</dt><dd><ul>
+<li><p><span class="math notranslate nohighlight">\(p_{1}=-\omega_n(m-\sqrt{m^2-1})\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(p_{2}=-\omega_n(m+\sqrt{m^2-1})\)</span></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Cas où <span class="math notranslate nohighlight">\(m=1\)</span>:</dt><dd><ul>
+<li><p><span class="math notranslate nohighlight">\(p_1 = p_2 = -m\omega_n\)</span></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Cas où <span class="math notranslate nohighlight">\(0\le m&lt;1\)</span>:</dt><dd><ul>
+<li><p><span class="math notranslate nohighlight">\(p_{1}=-\omega_n(m-j\sqrt{1-m^2})\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(p_{2}=-\omega_n(m+j\sqrt{1-m^2})\)</span></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Lorsque <span class="math notranslate nohighlight">\(0\le m&lt;1\)</span>,</p>
+<ul class="simple">
+<li><p>La pulsation propre est donnée par le module des pôles <span class="math notranslate nohighlight">\(\omega_n=|p_{k}|\)</span>.</p></li>
+<li><p>Le coefficient d’amortissement est égal à <span class="math notranslate nohighlight">\(m=-\Re e(p_{k})/|p_{k}|\)</span>.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="reponse-indicielle">
+<h2>Réponse Indicielle<a class="headerlink" href="#reponse-indicielle" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="cas-ou-m-1">
+<h3>Cas où <span class="math notranslate nohighlight">\(m&gt;1\)</span><a class="headerlink" href="#cas-ou-m-1" title="Lien permanent vers ce titre">¶</a></h3>
+<p><strong>Expression</strong></p>
+<p>La réponse indicielle s’exprime sous la forme :</p>
+<div class="math notranslate nohighlight">
+\[s(t)=KE\left(1-\frac{1}{2\omega_n\sqrt{m^2-1}}\left(p_1 e^{p_2 t}-p_2 e^{p_1 t} \right)\right)u(t)\]</div>
+<p><strong>Exemple</strong></p>
+<div class="figure align-default">
+<img alt="../_images/second_order-2.png" class="plot-directive" src="../_images/second_order-2.png" />
+</div>
+<p><strong>Propriétés</strong></p>
+<ul class="simple">
+<li><p>Valeur initiale : <span class="math notranslate nohighlight">\(s(0)=0\)</span>,</p></li>
+<li><p>Valeur finale : <span class="math notranslate nohighlight">\(s(\infty)=KE\)</span>,</p></li>
+<li><p>Temps de réponse à <span class="math notranslate nohighlight">\(\pm 5\%\)</span> : Pas de formule simple. Lorsque <span class="math notranslate nohighlight">\(m\gg 1\)</span>, le temps de réponse est dicté par le pôle le plus lent c-a-d <span class="math notranslate nohighlight">\(t_r\approx -\frac{3}{p_1}\)</span></p></li>
+<li><p>Pas de dépassement : <span class="math notranslate nohighlight">\(s(\infty)=\max(s(t))=KE\)</span></p></li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h3>Cas où <span class="math notranslate nohighlight">\(m&lt;1\)</span><a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h3>
+<p><strong>Expression</strong></p>
+<p>La réponse indicielle s’exprime sous la forme :</p>
+<div class="math notranslate nohighlight">
+\[s(t)=KE\left(1-\frac{1}{\sqrt{1-m^2}}e^{-m\omega_nt}\cos\left(\omega_n\sqrt{1-m^2}t-\arcsin(m)\right)\right)u(t)\]</div>
+<p><strong>Exemple</strong></p>
+<div class="figure align-default">
+<img alt="../_images/second_order-3.png" class="plot-directive" src="../_images/second_order-3.png" />
+</div>
+<p><strong>Propriétés</strong></p>
+<ul class="simple">
+<li><p>Valeur initiale : <span class="math notranslate nohighlight">\(s(0)=0\)</span>,</p></li>
+<li><p>Valeur finale : <span class="math notranslate nohighlight">\(s(\infty)=KE\)</span>,</p></li>
+<li><p>Temps de réponse à <span class="math notranslate nohighlight">\(\pm 5\%\)</span> : Pas de formule simple, nous utiliserons des abaques. Lorsque <span class="math notranslate nohighlight">\(m\to 0\)</span>, le temps de réponse est approximativement imposé par l’enveloppe c-a-d <span class="math notranslate nohighlight">\(t_r\approx \frac{3}{\omega_n m}\)</span>,</p></li>
+<li><p>Présence d’oscillations à la pseudo-pulsation (rad/s):</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\omega_p = \omega_n\sqrt{1-m^2}\]</div>
+<ul class="simple">
+<li><p>Premier Dépassement relatif :</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[D_r(\%)=\frac{\max[s(\infty)]-s(\infty)}{s(\infty)} =e^{\frac{-\pi m}{\sqrt{1-m^2}}}\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>En pratique, nous utiliserons des abaques pour déterminer le temps de réponse et le premier dépassement relatif : <a class="reference external" href="https://vincentchoqueuse.github.io/ENIB_tools/control_settling_time.html">https://vincentchoqueuse.github.io/ENIB_tools/control_settling_time.html</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="reponse-frequentielle">
+<h2>Réponse Fréquentielle<a class="headerlink" href="#reponse-frequentielle" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La réponse fréquentielle s’obtient en posant <span class="math notranslate nohighlight">\(p=j\omega\)</span> où <span class="math notranslate nohighlight">\(\omega\)</span> désigne la pulsation (en rad/s). La réponse fréquentielle d’un système passe-bas de premier ordre est donnée par :</p>
+<div class="math notranslate nohighlight">
+\[H(j\omega)=\frac{K}{1-\frac{\omega^2}{\omega_n^2}+j\frac{2m\omega }{\omega_n}}\]</div>
+<ul class="simple">
+<li><p>Comportement à la pulsation propre <span class="math notranslate nohighlight">\(\omega_n\)</span> (rad/s) : <span class="math notranslate nohighlight">\(H(j\omega_n)=\frac{K}{2jm}\)</span>.</p></li>
+</ul>
+<div class="section" id="module">
+<h3>Module<a class="headerlink" href="#module" title="Lien permanent vers ce titre">¶</a></h3>
+<p><strong>Expression</strong></p>
+<p>Pour <span class="math notranslate nohighlight">\(K&gt;0\)</span>, le module s’exprime sous la forme</p>
+<div class="math notranslate nohighlight">
+\[|H(j\omega)|=\frac{K}{\sqrt{\left(1-\frac{\omega^2}{\omega_n^2}\right)^2+\frac{4m^2\omega^2}{\omega_n^2}}}\]</div>
+<p><strong>Exemple</strong></p>
+<div class="figure align-default">
+<img alt="../_images/second_order-4.png" class="plot-directive" src="../_images/second_order-4.png" />
+</div>
+<p><strong>Propriétés</strong></p>
+<ul class="simple">
+<li><p>Amplification basse-fréquence : <span class="math notranslate nohighlight">\(\lim_{\omega\to 0}|H(j\omega)|=K\)</span>,</p></li>
+<li><p>Amplification haute-fréquence : <span class="math notranslate nohighlight">\(\lim_{\omega\to \infty}|H(j\omega)|=0\)</span>.</p></li>
+<li><p>Comportement asymptotique : Pour <span class="math notranslate nohighlight">\(\omega \gg \omega_n\)</span>, <span class="math notranslate nohighlight">\(|H(j\omega)|\approx K \left(\frac{\omega_n}{\omega}\right)^2\)</span></p></li>
+<li><p>Si <span class="math notranslate nohighlight">\(m&lt;\frac{1}{\sqrt{2}}\)</span>, la module présente un extremum à la pulsation de résonance: <span class="math notranslate nohighlight">\(\omega_r = \omega_n \sqrt{1-2m^2}\)</span>. A la pulsation de résonance, le module est égal à <span class="math notranslate nohighlight">\(|H(j\omega_r)|=\frac{K}{2m\sqrt{1-m^2}}\)</span>. En pratique, nous utiliserons essentiellement le facteur de resonance <span class="math notranslate nohighlight">\(M\)</span> qui est égal en valeur naturelle à</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[M=\frac{|H(j\omega_r)|}{K}=\frac{1}{2m\sqrt{1-m^2}}\]</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>En dB, le facteur de résonance s’exprime sous la forme <span class="math notranslate nohighlight">\(M_{dB} = G_m - G_0\)</span>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>En pratique, nous utiliserons des abaques pour déterminer le facteur de résonance en dB : <a class="reference external" href="https://vincentchoqueuse.github.io/ENIB_tools/control_resonance.html">https://vincentchoqueuse.github.io/ENIB_tools/control_resonance.html</a></p>
+</div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2021, V. Choqueuse.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.2.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

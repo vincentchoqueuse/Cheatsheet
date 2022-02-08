@@ -1,0 +1,415 @@
+
+<!DOCTYPE html>
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Summary &#8212; Documentation cheatsheet </title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/blank.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Systèmes SLIT (Continus)" href="slit.html" />
+    <link rel="prev" title="S6_asserv" href="index.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="fr">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../index.html">
+  <img src="../_static/logo.svg" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../getting_started/index.html">
+  Getting Started
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../S0_math/index.html">
+  S0_math
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../S1_algo/index.html">
+  S1_algo
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../S4_elec/index.html">
+  S4_elec
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../S5_signal/index.html">
+  S5_signal
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="index.html">
+  S6_asserv
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../S6_stats/index.html">
+  S6_stats
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/vincentchoqueuse/ENIB_cheatsheet" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contents:
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Summary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="slit.html">
+   Systèmes SLIT (Continus)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="first_order.html">
+   Systèmes de 1er ordre (Continus)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="second_order.html">
+   Systèmes de 2nd ordre (Continus)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nichols.html">
+   Diagrammes de Black Nichols (Continus)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nichols2.html">
+   Correction PI (Continus)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cheatsheet.html">
+   Cheatsheet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="links.html">
+   Links
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modelisation">
+   Modélisation
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#equation-de-recurrence">
+     Equation de récurrence
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fonction-de-transfert">
+     Fonction de transfert
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#proprietes">
+     Propriétés
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modelisation-cna-can-avec-boz">
+   Modélisation CNA/CAN avec BOZ
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exemple">
+     Exemple
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#correcteurs-numeriques">
+   Correcteurs Numériques
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#proportionnel">
+     Proportionnel
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pi">
+     PI
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#pid">
+     PID
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="summary">
+<h1>Summary<a class="headerlink" href="#summary" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="modelisation">
+<h2>Modélisation<a class="headerlink" href="#modelisation" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="equation-de-recurrence">
+<h3>Equation de récurrence<a class="headerlink" href="#equation-de-recurrence" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="math notranslate nohighlight">
+\[s[n] = \sum_{k=0}^N b_k e[n-k] - \sum_{k=1}^N a_k s[n-k]\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(b_k\)</span>: coefficient de la partie non recursive,</p></li>
+<li><p><span class="math notranslate nohighlight">\(a_k\)</span>: coefficient de la partie recursive. La valeur de <span class="math notranslate nohighlight">\(a_0\)</span> est implicitement normalisée à 1.</p></li>
+</ul>
+</div>
+<div class="section" id="fonction-de-transfert">
+<h3>Fonction de transfert<a class="headerlink" href="#fonction-de-transfert" title="Lien permanent vers ce titre">¶</a></h3>
+<p>En exploitant le fait que la transformée en Z est linéaire et que <span class="math notranslate nohighlight">\(\mathcal{Z}[e[n-1]]=z^{-1}E(z)\)</span>, la fonction
+de transfert du système s’exprime sous la forme</p>
+<div class="math notranslate nohighlight">
+\[H(z)=\frac{S(z)}{E(z)} = \frac{\sum_{k=0}^N b_k z^{-k}}{1+\sum_{k=1}^N a_k z^{-k}}\]</div>
+</div>
+<div class="section" id="proprietes">
+<h3>Propriétés<a class="headerlink" href="#proprietes" title="Lien permanent vers ce titre">¶</a></h3>
+<ul class="simple">
+<li><p>Stabilité: <span class="math notranslate nohighlight">\(|p_k|\le 1\)</span> pour tout <span class="math notranslate nohighlight">\(k\)</span>. Nous retiendrons alors que pour qu’un système soit stable, tous ses pôles doivent être compris dans le cercle de rayon unité.</p></li>
+<li><p>Gain statique: <span class="math notranslate nohighlight">\(K = H(1)\)</span>,</p></li>
+<li><p>Comportement fréquentiel: <span class="math notranslate nohighlight">\(H\left(e^{j\omega T_e}\right)\)</span>.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="modelisation-cna-can-avec-boz">
+<h2>Modélisation CNA/CAN avec BOZ<a class="headerlink" href="#modelisation-cna-can-avec-boz" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Même si la correction se fait en numérique, en pratique, le système à contrôler reste
+le plus souvent analogique. Pour pouvoir mettre en place une stratégie de correction, il
+est alors nécessaire de modéliser l’influence des convertisseurs A/N et N/A.</p>
+<p>Soit un système comportant</p>
+<ul class="simple">
+<li><p>un CNA de période d’échantillonnage <span class="math notranslate nohighlight">\(T_e\)</span></p></li>
+<li><p>le système continu <span class="math notranslate nohighlight">\(F(p)\)</span></p></li>
+<li><p>un CAN de période d’échantillonnage <span class="math notranslate nohighlight">\(T_e\)</span> modélisé par un bloqueur d’ordre 0,</p></li>
+</ul>
+<div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="../_images/boz.svg"><img alt="schema bloc" src="../_images/boz.svg" width="350" /></a>
+<p class="caption"><span class="caption-text">CNA avec BOZ</span><a class="headerlink" href="#id1" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>La chaîne peut être modélisée par la fonction de transfert suivante</p>
+<div class="math notranslate nohighlight">
+\[F(z)=\frac{z-1}{z}TZ\left[TL^{-1}\left[\frac{F(p)}{p}\right]\right]\]</div>
+<div class="section" id="exemple">
+<h3>Exemple<a class="headerlink" href="#exemple" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Considérons un système continu de premier ordre de fonction de transfert</p>
+<div class="math notranslate nohighlight">
+\[F(p)=\frac{K}{1+\tau p}\]</div>
+<p>La Fonction de transfert discrete est égale à</p>
+<div class="math notranslate nohighlight">
+\[F(z)=K\left(\frac{1-e^{-\frac{T_e}{\tau}}}{z-e^{-\frac{T_e}{\tau}}} \right)\]</div>
+<p>où <span class="math notranslate nohighlight">\(T_e\)</span> désigne la période d’échantillonnage.</p>
+</div>
+</div>
+<div class="section" id="correcteurs-numeriques">
+<h2>Correcteurs Numériques<a class="headerlink" href="#correcteurs-numeriques" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="proportionnel">
+<h3>Proportionnel<a class="headerlink" href="#proportionnel" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="math notranslate nohighlight">
+\[C(z)=K_p\]</div>
+<ul class="simple">
+<li><p>Paramètres du correcteur: <span class="math notranslate nohighlight">\(\boldsymbol \theta=\{K_p\}\)</span>.</p></li>
+</ul>
+</div>
+<div class="section" id="pi">
+<h3>PI<a class="headerlink" href="#pi" title="Lien permanent vers ce titre">¶</a></h3>
+<p>En « numérisant » l’intégration continue, la fonction de transfert d’un correcteur PI numérique est donnée par</p>
+<div class="math notranslate nohighlight">
+\[C(z)=K_p\left(1+\frac{T_e}{T_i}\frac{z}{z-1}\right)\]</div>
+<ul class="simple">
+<li><p>Paramètres du correcteur: <span class="math notranslate nohighlight">\(\boldsymbol \theta=\{K_p,T_i\}\)</span>.</p></li>
+</ul>
+</div>
+<div class="section" id="pid">
+<h3>PID<a class="headerlink" href="#pid" title="Lien permanent vers ce titre">¶</a></h3>
+<div class="math notranslate nohighlight">
+\[C(z)=K_p\left(1+\frac{T_e}{T_i}\frac{z}{z-1}+\frac{T_d}{T_e}\frac{z-1}{z}\right)\]</div>
+<ul class="simple">
+<li><p>Paramètres du correcteur: <span class="math notranslate nohighlight">\(\boldsymbol \theta=\{K_p,T_i,T_d\}\)</span>.</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2021, V. Choqueuse.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.2.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

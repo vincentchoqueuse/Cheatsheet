@@ -1,0 +1,426 @@
+
+<!DOCTYPE html>
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transformée de Laplace &#8212; Documentation cheatsheet </title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/blank.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="S1_algo" href="../S1_algo/index.html" />
+    <link rel="prev" title="Equations Differentielles" href="equations_differentielles.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="fr">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../index.html">
+  <img src="../_static/logo.svg" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../getting_started/index.html">
+  Getting Started
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="index.html">
+  S0_math
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../S1_algo/index.html">
+  S1_algo
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../S4_elec/index.html">
+  S4_elec
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../S5_signal/index.html">
+  S5_signal
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../S6_asserv/index.html">
+  S6_asserv
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../S6_stats/index.html">
+  S6_stats
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/vincentchoqueuse/ENIB_cheatsheet" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contents:
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="second_degree.html">
+   Equations du Second Degre
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="nombres_complexes.html">
+   Nombres Complexes
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="equations_differentielles.html">
+   Equations Differentielles
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Transformée de Laplace
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#definition">
+   Définition
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#proprietes">
+   Propriétés
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#signaux-usuels">
+   Signaux Usuels
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#impulsion-de-dirac">
+     Impulsion de Dirac
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#echelon-unitaire">
+     Echelon Unitaire
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#exponentielle-decroissante">
+     Exponentielle Décroissante
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sinusoide-amortie-part-1">
+     Sinusoide Amortie (Part 1)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sinusoide-amortie-part-2">
+     Sinusoide Amortie (Part 2)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exemple">
+   Exemple
+  </a>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="transformee-de-laplace">
+<h1>Transformée de Laplace<a class="headerlink" href="#transformee-de-laplace" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="definition">
+<h2>Définition<a class="headerlink" href="#definition" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="math notranslate nohighlight">
+\[X(p) = \mathcal{L}[x(t)]=\int_{0}^{\infty} x(t)e^{-pt}dt\]</div>
+</div>
+<div class="section" id="proprietes">
+<h2>Propriétés<a class="headerlink" href="#proprietes" title="Lien permanent vers ce titre">¶</a></h2>
+<ul class="simple">
+<li><p>Linéarité :</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\mathcal{L}\left[\alpha_1 x_1(t)+\alpha_2 x_2(t)\right]=\alpha_1 X_1(p)+\alpha_2 X_2(p)\]</div>
+<ul class="simple">
+<li><p>Dérivation :</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\mathcal{L}\left[\frac{dx(t)}{dt}\right]=pX(p)-x(0^-)\]</div>
+<ul class="simple">
+<li><p>Théorème de la Valeur Initiale :</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[x(0^+)=\lim_{p\to \infty} p X(p)\]</div>
+<ul class="simple">
+<li><p>Théorème de la Valeur Finale :</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[x(\infty)=\lim_{p\to 0} p X(p)\]</div>
+</div>
+<div class="section" id="signaux-usuels">
+<h2>Signaux Usuels<a class="headerlink" href="#signaux-usuels" title="Lien permanent vers ce titre">¶</a></h2>
+<div class="section" id="impulsion-de-dirac">
+<h3>Impulsion de Dirac<a class="headerlink" href="#impulsion-de-dirac" title="Lien permanent vers ce titre">¶</a></h3>
+<ul class="simple">
+<li><p>Définition :</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}x(t) = \delta(t)=\left\{\begin{array}{cc}
+\infty,&amp;t=0\\
+0,&amp;t\ne 0
+\end{array}\right.~\text{s.t.}\int_{-\infty}^{\infty} \delta(t)dt = 1\end{split}\]</div>
+<ul class="simple">
+<li><p>Transformée de Laplace :</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[X(p) = 1\]</div>
+</div>
+<div class="section" id="echelon-unitaire">
+<h3>Echelon Unitaire<a class="headerlink" href="#echelon-unitaire" title="Lien permanent vers ce titre">¶</a></h3>
+<ul class="simple">
+<li><p>Définition :</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}u(t)=\left\{\begin{array}{cc}
+1,&amp;t\ge 0\\
+0,&amp;t&lt; 0
+\end{array}\right.\end{split}\]</div>
+<ul class="simple">
+<li><p>Transformée de Laplace :</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[U(p) = \frac{1}{p}\]</div>
+</div>
+<div class="section" id="exponentielle-decroissante">
+<h3>Exponentielle Décroissante<a class="headerlink" href="#exponentielle-decroissante" title="Lien permanent vers ce titre">¶</a></h3>
+<ul class="simple">
+<li><p>Définition :</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[x(t)=e^{-\alpha t}u(t)\]</div>
+<ul class="simple">
+<li><p>Transformée de Laplace :</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[X(p) = \frac{1}{p+\alpha}\]</div>
+</div>
+<div class="section" id="sinusoide-amortie-part-1">
+<h3>Sinusoide Amortie (Part 1)<a class="headerlink" href="#sinusoide-amortie-part-1" title="Lien permanent vers ce titre">¶</a></h3>
+<ul class="simple">
+<li><p>Définition :</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[x(t)=e^{-\alpha t}\sin(\omega t) u(t)\]</div>
+<ul class="simple">
+<li><p>Transformée de Laplace :</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[X(p) = \frac{\omega}{(p+\alpha)^2+\omega^2}\]</div>
+</div>
+<div class="section" id="sinusoide-amortie-part-2">
+<h3>Sinusoide Amortie (Part 2)<a class="headerlink" href="#sinusoide-amortie-part-2" title="Lien permanent vers ce titre">¶</a></h3>
+<ul class="simple">
+<li><p>Définition :</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[x(t)=e^{-\alpha t}\cos(\omega t) u(t)\]</div>
+<ul class="simple">
+<li><p>Transformée de Laplace :</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[X(p) = \frac{p+\alpha}{(p+\alpha)^2+\omega^2}\]</div>
+</div>
+</div>
+<div class="section" id="exemple">
+<h2>Exemple<a class="headerlink" href="#exemple" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Considérons l’équation différentielle suivante de premier ordre</p>
+<div class="math notranslate nohighlight">
+\[\tau \frac{d s(t)}{dt} + s(t)= Ke(t)\]</div>
+<p>Nous souhaitons obtenir la réponse indicielle (entrée=échelon) du système.</p>
+<ul class="simple">
+<li><p>Partie 1: Transformée de Laplace de la sortie</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[S(p)=\frac{K}{p(\tau p +1)}\]</div>
+<ul class="simple">
+<li><p>Partie 2: Décomposition en éléments simples</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[S(p)=\frac{K}{p}-\frac{K\tau }{\tau p +1}\]</div>
+<ul class="simple">
+<li><p>Partie 3 : Transformée de Laplace Inverse</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[s(t) = K u(t)-K e^{-\frac{t}{\tau}}u(t)=K(1-e^{-\frac{t}{\tau}})u(t)\]</div>
+</div>
+</div>
+
+
+              </div>
+              
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2021, V. Choqueuse.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.2.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,376 @@
+
+<!DOCTYPE html>
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Poles/Zeros of 2nd order systems &#8212; Documentation cheatsheet </title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/blank.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Limit values for 2nd order systems" href="initial_final_values.html" />
+    <link rel="prev" title="Transfer Function List" href="transfer_function_list.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="fr">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../index.html">
+  <img src="../_static/logo.svg" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../getting_started/index.html">
+  Getting Started
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../S0_math/index.html">
+  S0_math
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../S1_algo/index.html">
+  S1_algo
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="index.html">
+  S4_elec
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../S5_signal/index.html">
+  S5_signal
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../S6_asserv/index.html">
+  S6_asserv
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../S6_stats/index.html">
+  S6_stats
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/vincentchoqueuse/ENIB_cheatsheet" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contents:
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="summary.html">
+   Summary
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="transfer_function_list.html">
+   Transfer Function List
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Poles/Zeros of 2nd order systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="initial_final_values.html">
+   Limit values for 2nd order systems
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="filter_transformation.html">
+   Filter Transformation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="circuits_analysis.html">
+   Circuit Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="circuits_list.html">
+   Circuit List
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cheatsheet.html">
+   Cheatsheet
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#expressions-des-poles">
+   Expressions des Pôles
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cas-ou-m-1">
+     Cas où m&gt;1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Cas où m=1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Cas où m&lt;1
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="poles-zeros-of-2nd-order-systems">
+<h1>Poles/Zeros of 2nd order systems<a class="headerlink" href="#poles-zeros-of-2nd-order-systems" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers ce titre">¶</a></h2>
+<p>La localisation des pôles et des zéros permettent d’appréhender le comportement temporel et fréquentiel d’un système.
+Dans ce tutorial, nous nous intéressons spécifiquement à la localisation des pôles et des zéros pour les systèmes d’ordre 2
+décrit par la fonction de transfert</p>
+<div class="math notranslate nohighlight">
+\[H(p)=\frac{N(p)}{\frac{1}{\omega_0^2}p^2+\frac{2m}{\omega_0}p+1}\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(N(p)\)</span> désigne le numérateur de la fonction de transfert,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\omega_0\)</span> désigne la pulsation propre,</p></li>
+<li><p><span class="math notranslate nohighlight">\(m\)</span> le coefficient d’amortissement.</p></li>
+</ul>
+</div>
+<div class="section" id="expressions-des-poles">
+<h2>Expressions des Pôles<a class="headerlink" href="#expressions-des-poles" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Les systèmes d’ordre 2 possèdent deux pôles. Le regime libre d’un système d’ordre 2 s’exprime alors sous la forme:</p>
+<div class="math notranslate nohighlight">
+\[s_l(t)=\lambda_1 e^{p_1t} + \lambda_2 e^{p_2t}\]</div>
+<p>où <span class="math notranslate nohighlight">\(\lambda_1\)</span> et <span class="math notranslate nohighlight">\(\lambda_2\)</span> désignent les constantes d’intégration. Les deux pôles s’obtiennent en évaluant les racines du dénominateur
+de la fonction de transfert c-a-d en déterminant les valeurs de <span class="math notranslate nohighlight">\(p\)</span> telles que:</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{\omega_0^2}p^2+\frac{2m}{\omega_0}p+1 = 0\]</div>
+<p>Cette équation est une équation du second degré. Le discriminant s’exprime sous la forme suivante:</p>
+<div class="math notranslate nohighlight">
+\[\Delta = \left(\frac{2m}{\omega_0}\right)^2-\frac{4}{\omega_0^2} =\frac{4}{\omega_0^2}\left(m^2-1\right)\]</div>
+<div class="section" id="cas-ou-m-1">
+<h3>Cas où m&gt;1<a class="headerlink" href="#cas-ou-m-1" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Lorsque <span class="math notranslate nohighlight">\(m&gt;1\)</span>, le système possède deux poles réels et distincts. Les pôles s’expriment sous la forme</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}p_1 = -m\omega_0 +\omega_0 \sqrt{m^2-1}\\
+p_2 = -m\omega_0 -\omega_0 \sqrt{m^2-1}\end{split}\]</div>
+<p>Mathématiquement, nous obtenons les propriétés suivantes:</p>
+<ul class="simple">
+<li><p>le produit des deux pôles est égale à <span class="math notranslate nohighlight">\(p_1p_2=m^2\omega_0^2-\omega_0^2(m^2-1)=\omega_0^2\)</span></p></li>
+<li><p>la somme des deux pôle est égale à <span class="math notranslate nohighlight">\(p_1+p_2=-2m\omega_0\)</span>.</p></li>
+</ul>
+<p>Nous en déduisons alors que:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\omega_0 &amp;= \sqrt{p_1p_2}\\
+m &amp;= -\frac{p_1+p_2}{2\omega_0}\end{split}\]</div>
+<p>Géométriquement, les deux pôles sont placés sur un cercle de centre <span class="math notranslate nohighlight">\(-m\omega_0\)</span> et de rayon <span class="math notranslate nohighlight">\(\sqrt{m^2-1}\)</span>.</p>
+<div class="figure align-default">
+<img alt="../_images/poles_second_order-1.png" class="plot-directive" src="../_images/poles_second_order-1.png" />
+</div>
+</div>
+<div class="section" id="id1">
+<h3>Cas où m=1<a class="headerlink" href="#id1" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Lorsque <span class="math notranslate nohighlight">\(m=1\)</span>, le système possède un pole réel double. Le pole réel double s’exprime sous la forme</p>
+<div class="math notranslate nohighlight">
+\[p_1 = p_2 = -m\omega_0\]</div>
+<div class="figure align-default">
+<img alt="../_images/poles_second_order-2.png" class="plot-directive" src="../_images/poles_second_order-2.png" />
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Cas où m&lt;1<a class="headerlink" href="#id2" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Lorsque <span class="math notranslate nohighlight">\(m&lt;1\)</span>, le système possède une paire de pôles complex-conjugués. Les pôles s’expriment sous la forme</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}p_1 = -m\omega_0 +j\omega_0 \sqrt{1-m^2}\\
+p_2 = -m\omega_0 -j\omega_0 \sqrt{1-m^2}\end{split}\]</div>
+<p>Mathématiquement,</p>
+<ul class="simple">
+<li><p>le module de chaque pôle est égal à <span class="math notranslate nohighlight">\(|p_1|=|p_2|=\sqrt{(m\omega_0)^2+\omega_0^2(1-m^2)}=\omega_0\)</span>.</p></li>
+<li><p>l’angle formé entre le pôle <span class="math notranslate nohighlight">\(p_1\)</span> et l’axe des réels est donné par <span class="math notranslate nohighlight">\(\cos(\theta)=-\Re e(p_1)/|p_1|=m\)</span></p></li>
+</ul>
+<p>Nous en déduisons alors que:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\omega_0 &amp;= \sqrt{p_1p_1^*}=|p_1|\\
+m &amp;= -\frac{\Re e(p_1)}{\omega_0 }\end{split}\]</div>
+<div class="figure align-default">
+<img alt="../_images/poles_second_order-3.png" class="plot-directive" src="../_images/poles_second_order-3.png" />
+</div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2021, V. Choqueuse.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.2.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>
