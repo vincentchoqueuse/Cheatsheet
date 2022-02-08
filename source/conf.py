@@ -75,7 +75,7 @@ html_theme_options = {
   "icon_links": [
         {
             "name": "GitHub",
-            "url": "https://github.com/vincentchoqueuse/ENIB_cheatsheet",
+            "url": "https://github.com/vincentchoqueuse/Cheatsheet",
             "icon": "fab fa-github-square",
         }]
 }
