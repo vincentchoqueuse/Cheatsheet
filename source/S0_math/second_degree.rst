@@ -1,4 +1,4 @@
-Equations du Second Degre
+Equations du Second Degré
 =========================
 
 Modèle Mathématique 
@@ -38,7 +38,16 @@ Les racines de :math:`p(x)` sont les valeurs de :math:`x` pour lesquelles
 .. math::
     
     p(x)=ax^2+bx+c=0
+
+Les racines peuvent s'obtenir par identification avec la forme factorisée suivante 
+
+.. math::
     
+    p(x) &= a(x-x_1)(x - x_2)
+    &=ax^2 - a(x_2 + x_1) +ax_1x_2
+    
+En particulier, nous 
+
 Un polynôme de degré 2 possèdent 2 racines notées :math:`x_1`et :math:`x_2`. L'expression de ces 2 racines dépend de la valeur du discriminant 
 
 .. math ::
