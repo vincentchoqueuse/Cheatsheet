@@ -1,0 +1,442 @@
+
+<!DOCTYPE html>
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Introduction &#8212; Documentation cheatsheet </title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/blank.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Systèmes Continus" href="continus/index.html" />
+    <link rel="prev" title="S6_asserv" href="index.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="fr">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../index.html">
+  <img src="../_static/logo.svg" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../getting_started/index.html">
+  Getting Started
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../S0_math/index.html">
+  S0_math
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../S1_algo/index.html">
+  S1_algo
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../S4_elec/index.html">
+  S4_elec
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../S5_signal/index.html">
+  S5_signal
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="index.html">
+  S6_asserv
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../S6_stats/index.html">
+  S6_stats
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/vincentchoqueuse/Cheatsheet" rel="noopener" target="_blank" title="GitHub">
+            <span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label>
+          </a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Table de matières:
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="continus/index.html">
+   Systèmes Continus
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="continus/analyse.html">
+     Systèmes SLIT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="continus/first_order.html">
+     Systèmes de 1er ordre
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="continus/second_order.html">
+     Systèmes de 2nd ordre
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="continus/correction.html">
+     Liste des correcteurs
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="continus/nichols.html">
+     Diagrammes de Black Nichols
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="continus/nichols2.html">
+     Correction PI
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="discrets/index.html">
+   Systèmes à temps discret
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="discrets/Z_transform.html">
+     Systèmes SLIT
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="discrets/systeme_echantillonne.html">
+     Systèmes Echantillonnés
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="discrets/correction.html">
+     Liste des correcteurs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cheatsheet.html">
+   Cheatsheet
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="links.html">
+   Links
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#objectif">
+   Objectif
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#criteres-de-performance">
+   Critères de Performance
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stabilite">
+     Stabilité
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#precision">
+     Précision
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#rapidite">
+     Rapidité
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#depassement">
+     Dépassement
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#robustesse">
+     Robustesse
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Lien permanent vers ce titre">¶</a></h1>
+<div class="section" id="objectif">
+<h2>Objectif<a class="headerlink" href="#objectif" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Dans ce cours, nous allons nous focaliser sur le contrôle et la commande des systèmes à une entrée / une sortie (SISO: Single Input Single Output).
+Un système SISO peut être représenté un bloc prenant une entrée et renvoyant une sortie.</p>
+<div class="figure align-center" id="id1">
+<a class="reference internal image-reference" href="../_images/representation3.svg"><img alt="Modélisation Schéma Bloc" src="../_images/representation3.svg" width="250" /></a>
+<p class="caption"><span class="caption-text">Modélisation Schéma Bloc</span><a class="headerlink" href="#id1" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>En asservissement, notre objectif est de venir élaborer, synthétiser un signal de commande analogique ou numérique du processus que nous souhaitons contrôler.
+Pour atteindre cet objectif, nous proposons de :</p>
+<ul class="simple">
+<li><p>mesurer la sortie du système au moyen d’un capteur,</p></li>
+<li><p>mesurer la différence entre la consigne et la sortie du capteur au moyen d’un comparateur,</p></li>
+<li><p>d’élaborer un signal de commande à partir de la sortie du comparateur.</p></li>
+</ul>
+<p>Cette structure correspond à un système bouclé puisque la sortie est combinée avec l’entrée via le comparateur.</p>
+<div class="figure align-center" id="id2">
+<a class="reference internal image-reference" href="../_images/representation4.svg"><img alt="Modélisation Schéma Bloc" src="../_images/representation4.svg" width="450" /></a>
+<p class="caption"><span class="caption-text">Chaîne bouclée à retour non unitaire</span><a class="headerlink" href="#id2" title="Lien permanent vers cette image">¶</a></p>
+</div>
+<p>Pour faciliter l’analyse des systèmes bouclés, nous travaillerons le plus souvent avec des systèmes bouclés à retour unitaire. En notant <span class="math notranslate nohighlight">\(e(t)\)</span> et <span class="math notranslate nohighlight">\(s(t)\)</span> le
+signal de consigne et le signal en sortie de capteur, nous obtenons alors le schéma bloc suivant.</p>
+<div class="figure align-center" id="id3">
+<a class="reference internal image-reference" href="../_images/representation5.svg"><img alt="Modélisation Schéma Bloc" src="../_images/representation5.svg" width="550" /></a>
+<p class="caption"><span class="caption-text">Chaîne bouclée à retour unitaire</span><a class="headerlink" href="#id3" title="Lien permanent vers cette image">¶</a></p>
+</div>
+</div>
+<div class="section" id="criteres-de-performance">
+<h2>Critères de Performance<a class="headerlink" href="#criteres-de-performance" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Pour élaborer un signal de commande, nous allons prendre en compte plusieurs contraintes portant sur l’allure du signal de sortie
+<span class="math notranslate nohighlight">\(s(t)\)</span>. A titre d’illustration, la courbe suivante présente l’allure de la réponse d’un système à une entrée de type échelon (réponse indicielle). A
+partir de cette réponse, nous pouvons évaluer plusieurs critères permettant de critiquer les performances de l’asservissement.</p>
+<div class="figure align-default">
+<img alt="../_images/introduction-1.png" class="plot-directive" src="../_images/introduction-1.png" />
+</div>
+<div class="section" id="stabilite">
+<h3>Stabilité<a class="headerlink" href="#stabilite" title="Lien permanent vers ce titre">¶</a></h3>
+<p>La première chose à évaluer est la stabilité du système. Un système est dit stable, au sens BIBO (Bounded Input Bounded Output),
+si et seulement si pour tout <span class="math notranslate nohighlight">\(t\)</span></p>
+<div class="math notranslate nohighlight">
+\[|e(t)|&lt;\infty ~\Rightarrow~|s(t)|&lt;\infty\]</div>
+<p>En d’autres termes, une entrée bornée doit conduire à une sortie bornée.</p>
+</div>
+<div class="section" id="precision">
+<h3>Précision<a class="headerlink" href="#precision" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Une autre caractéristique importante d’un asservissement est sa précision. Pour mesurer la précision, un critère possible consiste à mesurer l’écart statique entre l’entrée et la sortie c-à-d <span class="math notranslate nohighlight">\(\epsilon = e(\infty)-s(\infty)\)</span>. En pratique,
+nous préférons utiliser l’écart statique relatif qui est une mesure généralement indépendante de l’amplitude de l’entrée.</p>
+<p>L’écart statique relatif est défini par :</p>
+<div class="math notranslate nohighlight">
+\[\epsilon_r (\%) = 100 \times \frac{e(\infty)-s(\infty)}{e(\infty)}\]</div>
+<p>Pour un système précis, l’écart statique relatif doit être nul.</p>
+</div>
+<div class="section" id="rapidite">
+<h3>Rapidité<a class="headerlink" href="#rapidite" title="Lien permanent vers ce titre">¶</a></h3>
+<p>En plus du comportement statique, il est souvent important de critiquer le comportement dynamique du système. Pour critiquer
+le comportement dynamique, il est courant d’analyser la rapidité du système via sa réponse indicielle. Pour mesurer la rapidité, un critère possible
+est le temps de réponse à <span class="math notranslate nohighlight">\(\pm 5\%\)</span>.</p>
+<p>Le temps de réponse à <span class="math notranslate nohighlight">\(\pm 5\%\)</span> est défini par :</p>
+<div class="math notranslate nohighlight">
+\[\forall t&gt;t_r,~0.95 s(\infty) \le s(t) \le 1.05 s(\infty)\]</div>
+<p>En d’autres termes, le temps de réponse correspond au temps nécessaire pour rentrer <strong>définitivement</strong> dans une fourchette comprise entre
+<span class="math notranslate nohighlight">\(-5\%\)</span> et <span class="math notranslate nohighlight">\(+5\%\)</span> de la valeur finale. Plus un système est rapide, plus son temps de réponse est faible.</p>
+</div>
+<div class="section" id="depassement">
+<h3>Dépassement<a class="headerlink" href="#depassement" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Une autre caractéristique importante concerne la présence ou nom d’oscillation au niveau de la réponse indicielle.
+Pour quantifier les oscillations, une critère possible consiste à mesurer le premier dépassement <span class="math notranslate nohighlight">\(D = \max[s(t)]-s(\infty)\)</span>. Le plus souvent, nous préférons utiliser la valeur du premier dépassement
+relatif qui est une mesure généralement indépendante de la valeur finale.</p>
+<p>Le premier dépassement relatif est défini par</p>
+<div class="math notranslate nohighlight">
+\[D_r(\%)=100 \times \frac{\max[s(t)]-s(\infty)}{s(\infty)}\]</div>
+</div>
+<div class="section" id="robustesse">
+<h3>Robustesse<a class="headerlink" href="#robustesse" title="Lien permanent vers ce titre">¶</a></h3>
+<p>Le plus souvent, l’analyse d’un système est réalisé sous l’hypothèse que nous connaissons exactement les comportements des différents
+blocs. Le plus souvent, ces comportements sont modélisés par des équations différentielles ou par des équations aux différences.
+Cette modélisation est, dans le meilleur des cas, une approximation de la réalité. Dans ce contexte, il est important d’évaluer la robustesse des stratégies de
+commande en présence d’écart de modélisation.</p>
+<p>Pour mesure la robustesse d’un asservissement, une approche couramment utilisée consiste à analyser l’influence de perturbations extérieures sur le
+comportement du système. Ces perturbations peuvent être déterministes ou aléatoires.</p>
+<div class="figure align-center" id="id4">
+<a class="reference internal image-reference" href="../_images/representation6.svg"><img alt="Modélisation Schéma Bloc" src="../_images/representation6.svg" width="650" /></a>
+<p class="caption"><span class="caption-text">Influence des perturbations</span><a class="headerlink" href="#id4" title="Lien permanent vers cette image">¶</a></p>
+</div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2021, V. Choqueuse.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.2.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

@@ -3,14 +3,11 @@ S6_asserv
 
 .. toctree::
     :maxdepth: 1
-    :caption: Contents:
+    :caption: Table de matières:
  
-    summary
-    slit
-    first_order
-    second_order
-    nichols 
-    nichols2
+    introduction
+    continus/index
+    discrets/index
     cheatsheet
     links
  
