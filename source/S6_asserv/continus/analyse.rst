@@ -105,9 +105,79 @@ Le type de la fonction transfert :math:`H(p)` est le plus petit entier naturel :
 * :math:`\alpha` : type du système,
 * :math:`G(p)`: fonction de transfert telle que :math:`\lim_{p\to 0} G(p)` est finie et non nulle.
 
+Réponse Temporelle
+------------------
 
-Comportement Fréquentiel
-------------------------
+Principe
+++++++++
+
+Pour obtenir la réponse temporelle d'un système à une entrée :math:`e(t)`, une solution possible consiste à passer par le domaine de Laplace.
+
+1. Dans le domaine de Laplace, la sortie du système s'exprime sous la forme : :math:`S(p) = H(p)E(p)` où :math:`E(p)` correspond à la transformée de Laplace de l'entrée. 
+2. Décomposition en éléments simples de la sortie :math:`S(p)``
+3. Retour à l'original en appliquant la transformée de Laplace inverse (utilisation des tables des transformées de Laplace).
+
+Réponse Indicielle 
+++++++++++++++++++
+
+La réponse indicielle à un échelon d'amplitude :math:`E` correspond à la sortie du système :math:`s(t)` lorsque :
+
+.. math ::
+
+    e(t)= Eu(t)= \left\{\begin{array}{cc}
+    E,&t\ge 0\\
+    0,&t< 0
+    \end{array}\right.
+
+Dans le domaine de Laplace, la sortie s'exprime alors sous la forme :
+
+.. math ::
+
+    S(p)=\frac{H(p)}{p}E
+
+L'expression de la décomposition en éléments simples dépend de :math:`H(p)`. Néanmoins, il est possible d'obtenir rapidement :math:`s(0^+)` et :math:`s(\infty)` en utilisant les théorèmes de la valeur initiale et de la valeur finale.
+
+* Valeur Initiale : 
+
+.. math ::
+
+    s(0^+)=\lim_{p\to \infty}H(p)E
+
+* Valeur Finale : Si la sortie converge,  
+
+.. math ::
+
+    s(\infty)=\lim_{p\to 0}H(p)E
+
+En particulier, lorsque le système est un système de type :math:`\alpha=0`, la valeur finale s'exprime sous la forme :math:`s(\infty)=H(0)E`.
+
+
+Exemple
++++++++
+
+L'exemple suivant montre comment obtenir la réponse indicielle d'un système de premier ordre en utilisant la transformée de Laplace ainsi que 
+la transformée de Laplace inverse. 
+
+1. Transformée de Laplace de la sortie :
+
+.. math ::
+
+    S(p)=\frac{K}{p(\tau p +1)}E
+
+2. Décomposition en éléments simples :
+
+.. math ::
+
+    S(p)=\frac{KE}{p}-\frac{KE\tau }{\tau p +1}
+
+3. Transformée de Laplace Inverse en utilisant les tables des transformées :
+
+.. math ::
+
+    s(t) = KE u(t)-KE e^{-\frac{t}{\tau}}u(t)=KE(1-e^{-\frac{t}{\tau}})u(t).
+
+Réponse Fréquentielle
+---------------------
 
 Il est possible de montrer que si :math:`e(t)=e^{j\omega t}`, la sortie s'exprime sous la forme :math:`s(t)=H(j\omega)e^{j\omega t}`. La grandeur complexe 
 :math:`H(j\omega)` est appelée réponse fréquentielle du système. 

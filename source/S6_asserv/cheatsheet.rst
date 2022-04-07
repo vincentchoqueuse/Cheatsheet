@@ -31,6 +31,15 @@ System Creation
 
     Documentation : https://python-control.readthedocs.io/en/latest/generated/control.tf.html
 
+Pour obtenir les pôles et les zéros, nous pouvons utiliser les méthodes :code:`pole()` et :code:`zero()`. Il est également possible d'obtenir les informations sur l'amortissement associé à chaque pôle en utilisant la méthode 
+:code:`damp()`.
+
+.. code ::
+
+    print(sys.pole())
+    print(sys.zero())
+    print(sys.damp())
+
 
 Closed Loop 
 +++++++++++

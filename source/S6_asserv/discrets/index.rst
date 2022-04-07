@@ -5,6 +5,7 @@ Systèmes à temps discret
     :maxdepth: 1
     :caption: Contents:
 
-    Z_transform
-    systeme_echantillonne
+    z
+    analyse
+    systeme_echantillonne    
     correction

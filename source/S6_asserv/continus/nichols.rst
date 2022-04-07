@@ -10,10 +10,9 @@ Considérons un système LTI de fonction de transfert :math:`F(p)`.
   :width: 250
   :align: center
 
-
-La calibration des correcteurs en boucle fermée est très souvent réalisé dans le domaine fréquentiel. Le domaine fréquentiel s'otbient 
+La calibration des correcteurs en boucle fermée est très souvent réalisée à partir du domaine fréquentiel. Le domaine fréquentiel s'obtient 
 en évaluant :math:`F(j\omega)`. La grandeur obtenue est généralement complexe. Pour la représenter, deux diagrammes sont
-couramment utilisées.
+couramment utilisés.
 
 * Diagramme de Bode: représentation du module (en dB) en fonction de la pulsation, représentation de la phase (en deg) en fonction de la pulsation,
 
@@ -46,13 +45,16 @@ Considérons un système en boucle fermée avec un retour unitaire.
 
 
 Le comportement de la **boucle fermée** peut être appréhendé à partir de diagramme de Black Nichols de la **boucle ouverte**
-en utilisant les contours d'iso-gain.
+en utilisant le point critique :math:`(0dB,-180)` et les contours d'iso-gain. Ces deux annotations sont utilisées de la manière suivante.
+
+* Le point critique permet de conclure par rapport à la stabilité du système en boucle fermée.
+* Les contours iso-gain permettent d'obtenir rapidement le gain en dB pour certaines pulsations en boucle fermée (avec retour unitaire). Ces informations sont ensuite utilisées pour appréhender le comportement dynamique de la boucle fermée. 
 
 Stabilité 
 ++++++++++
 
-.. figure:: img/fig6.png
-  :width: 500
+.. figure:: img/marges.png
+  :width: 400
   :align: center
   
   Diagramme de Black Nichols du système en boucle ouverte
@@ -61,44 +63,64 @@ Stabilité
 
  Le système en boucle fermée est stable si et seulement si, en parcourant le lieu de transfert de la boucle ouverte dans le sens des pulsations croissantes, le point critique :math:`(0dB,-180)` est laissé sur la droite.
 
-A titre d'exemple, dans la figure précédente, nous pouvons remarquer que le critère du revers est bien vérifié. Le système sera stable en boucle fermée.
+A titre d'exemple, dans la figure précédente, nous pouvons remarquer que le critère du revers est bien vérifié car en parcourant le lieu de transfert dans le sens des :math:`\omega` croissant (c-à-d de la droite vers la gauche), le lieu de transfert laisse le point critique sur sa droite. Le système sera stable en boucle fermée.
 
 Le critère du revers est un critère binaire. En pratique, nous préférons utiliser les notions de 
 
-* marge de gain (en dB),
-* marge de phase (en degrés).
+* marge de gain :math:`M_G` (en dB),
+* marge de phase :math:`M_{\varphi}` (en degrés).
 
-Ces deux marges indiquent la distance entre le lieu de transfert et le point critique situé à :math:`(-180^o, 0 dB)`.
+Ces deux marges indiquent la distance entre le lieu de transfert et le point critique.
 
 
 Caractéristiques Fréquentielles 
 +++++++++++++++++++++++++++++++
 
+Les contours iso-gain permettent d'appréhender le comportement dynamique du système en boucle fermée. Pour remonter aux propriétés dynamiques, les contours sont 
+utilisés pour extraire graphiquement le gain statique et la résonance du système :math:`M_{dB}`. Sous l'approximation que le système se comporte en boucle fermée comme un second ordre, il est ensuite possible de remonter 
+jusqu'au coefficient d'amortissement :math:`m` et à la pulsation propre :math:`\omega_n`.  
+
 .. figure:: img/fig6.png
   :width: 500
   :align: center
   
-  Diagramme de Black Nichols du système en boucle ouverte
+  Diagramme de Black Nichols du système en boucle ouverte. Lecture du gain statique en dB.
 
+* Gain statique en dB. Le gain statique en dB s'obtient en recherchant le contour iso-gain confondu avec le lieu de transfert en basse-fréquence. A partir de la courbe, nous trouvons: 
 
-* Gain statique en dB: :math:`G_0=-2.5` dB.
+.. math ::
+
+  G_0=-2.5~dB
 
 .. figure:: img/fig5.png
   :width: 500
   :align: center
   
-  Diagramme de Black Nichols du système en boucle ouverte
+  Diagramme de Black Nichols du système en boucle ouverte. Lecture du gain maximum en dB.
 
-* Gain maximum en dB: :math:`G_m=4` dB.
+* Gain maximum en dB. Le gain maximum s'obtient en recherchant le contour iso-gain tangentant le lieu de transfert. A partir de la courbe, nous obtenons 
+
+.. math ::
+
+  G_m=4~dB.
 
 .. figure:: img/fig7.png
   :width: 500
   :align: center
   
-  Diagramme de Black Nichols du système en boucle ouverte
+  Diagramme de Black Nichols du système en boucle ouverte. Lecture de la pulsation de resonance.
 
-* Pulsation de résonance: :math:`\omega_r=1.214` rad/s. 
-* Facteur de résonance en dB : :math:`M_{dB} = G_m - G_0 = 6.5` dB.
+* Pulsation de résonance. La pulsation de résonance (qui est différente de la pulsation propre) se lie directement à partir de la courbe au point de tangence. A partir de la courbe, nous obtenons 
+
+  .. math ::
+
+    \omega_r=1.214~rad/s
+  
+* Facteur de résonance en dB. Le facteur de résonance en dB s'obtient à partir de la différence entre le gain maximum en dB et le gain statique en dB. A partir de la courbe, nous obtenons 
+
+.. math ::
+
+    M_{dB} = G_m - G_0 = 6.5~dB.
 
 Approximation Second Ordre 
 ++++++++++++++++++++++++++
@@ -116,8 +138,7 @@ Les paramètres du système s'obtiennent à partir des caractéristiques fréque
 
 * Coefficient d'amortissement: :math:`M_{dB}=6.5` dB donc :math:`m\approx 0.24` (voir `abaques <https://vincentchoqueuse.github.io/web_app_2nd_order_performances/index.html>`_)
 
-
-* Pulsation propre: :math:`\omega_r = \omega_n \sqrt{1-2m^2}` avec :math:`m\approx 0.24` et :math:`\omega_r=1.214` rad/s donc :math:`\omega_n \approx 1.290` rad/s.
+* Pulsation propre. Pour un système de second ordre, la pulsation de résonance s'exprime sous la forme :math:`\omega_r = \omega_n \sqrt{1-2m^2}`. En prenant :math:`m\approx 0.24` et :math:`\omega_r=1.214` rad/s, nous obtenons :math:`\omega_n \approx 1.290` rad/s.
 
 Caractéristiques Temporelles
 ++++++++++++++++++++++++++++ 

@@ -4,7 +4,10 @@ Systèmes de 1er ordre
 Modélisation
 ------------
 
-Un système LTI peut être décrit par une équation différentielle liant l'entrée :math:`e(t)` et la sortie :math:`s(t)`.
+Equation Différentielle
++++++++++++++++++++++++
+
+Un système LTI peut être décrit par une équation différentielle de liant l'entrée :math:`e(t)` et la sortie :math:`s(t)`.
 Pour les systèmes passe-bas d'ordre 1, cette équation différentielle est donnée par: 
 
 .. math ::
@@ -12,10 +15,13 @@ Pour les systèmes passe-bas d'ordre 1, cette équation différentielle est donn
     \tau \frac{d s(t)}{dt} + s(t)= Ke(t)
 
 * :math:`K` : gain statique,
-* :math:`\tau` : constante de temps (s)
+* :math:`\tau` : constante de temps (s).
+
+Fonction de Transfert
++++++++++++++++++++++
 
 Pour faciliter l'analyse des systèmes LTI, il est courant de recourir à la notion de fonction de transfert. En utilisant les propriétés
-de la transformée de Laplace, il est possible d'établir que la fonction de transfert d'un filtre LP d'ordre 1 est donnée par:
+de la transformée de Laplace, il est possible d'établir que la fonction de transfert d'un système LP d'ordre 1 est donnée par:
 
 .. math ::
 
@@ -23,14 +29,14 @@ de la transformée de Laplace, il est possible d'établir que la fonction de tra
 
 Cette fonction de transfert possède:
 
-* un unique pôle en :math:`p=-\frac{1}{\tau}`,
+* un unique pôle négatif en :math:`p=-\frac{1}{\tau}`,
 * aucun zéro. 
 
 
 Réponse indicielle
 ------------------
 
-La réponse indicielle correspond à la réponse du système lorsque l'entrée est un échelon c-a-d 
+La réponse indicielle correspond à la réponse du système lorsque l'entrée est un échelon c-à-d 
 
 .. math ::
 
@@ -44,30 +50,10 @@ Pour le cas d'un système LP d'ordre 1, la réponse indicielle est donnée par :
 
     s(t)=KE\left(1-e^{-\frac{1}{\tau}t}\right)u(t)
 
-**Démonstration**
-
-Pour déterminer la réponse indicielle, il est possible de raisonner dans le domaine de Laplace. La transformée de Laplace de la sortie
-est donnée par :
-
-.. math ::
-
-    S(p)&= H(p)E(p)\\
-    &=\frac{K}{\tau p +1}\times \frac{E}{p}\\
-    &=\frac{KE}{p(\tau p +1)}\\
-    &=\frac{KE}{\tau}\frac{1}{p(p +\frac{1}{\tau})}\\
-    &= KE\left(\frac{1}{p} - \frac{1}{p +\frac{1}{\tau}}\right)
-
-Dans le domaine temporel, la réponse indicielle s'obtient en utilisant la transformée de Laplace inverse de :math:`S(p)`. En utilisant les tables des transformées de Laplace, 
-nous obtenons : 
-
-.. math ::
-
-    s(t)&= \mathcal{L}^{-1}\left[S(p)\right]\\
-    &=KE\left(u(t) - e^{-\frac{1}{\tau}t}u(t)\right)\\
-    &=KE\left(1 - e^{-\frac{1}{\tau}t}\right)u(t)
-
 Exemple
 +++++++
+
+La figure suivante présente l'allure de la réponse indicielle à un échelon d'amplitude :math:E. Cette réponse suit une exponentielle croissante et se stabilise vers une valeur finie.
 
 .. plot::
     :context: close-figs
@@ -107,13 +93,13 @@ Identification
 L'identification graphique des paramètres peut s'obtenir de la manière suivante:
 
 * Gain statique: le gain statique s'obtient à partir de la valeur finale via la relation :math:`K = s(\infty)/E`.
-* Constante de temps: la constante de temps peut s'obtenir à partir du temps de réponse :math:`\tau \approx t_r/3`.
+* Constante de temps: la constante de temps peut s'obtenir à partir du temps de réponse via la relation :math:`t_r = 3\tau`.
 
 
 Réponse Fréquentielle
 ---------------------
 
-La réponse fréquentielle s'obtient en posant :math:`p=j\omega` où :math:`\omega` désigne la pulsation (en rad/s). La réponse fréquentielle d'un système passe-bas de premier ordre est donnée par :
+La réponse fréquentielle s'obtient en posant :math:`p=j\omega` où :math:`\omega` désigne la pulsation (en rad/s). La réponse fréquentielle d'un système LP de premier ordre est donnée par :
 
 .. math ::
 
@@ -145,23 +131,22 @@ Module
     plt.plot([0.01,10],[K*(wc/0.01),K*wc/10],'r--')
     plt.ylim([0.1,3])
     plt.xlim([0.01,10])
-    plt.yticks([K,K/np.sqrt(2)], ["$G_0 = K_{dB}$","$K_{dB}-3$"])
+    plt.yticks([K,K/np.sqrt(2)], ["$G_0$","$G_0-3$"])
     plt.xticks([wc], ["$\omega_c = 1/\\tau$"])
     plt.grid()
     plt.xlabel("$w$ [rad/s]")
     plt.ylabel("$|H(j\omega)|_{dB}$");
 
-
-Pour :math:`K>0`, le module s'exprime sous la forme
+Le module s'exprime sous la forme
 
 .. math ::
 
-    |H(j\omega)|=\frac{K}{\sqrt{1+(\omega\tau)^2}}
+    |H(j\omega)|=\frac{|K|}{\sqrt{1+(\omega\tau)^2}}
 
-* Amplification basse-fréquence : :math:`\lim_{\omega\to 0}|H(j\omega)|=K`,
+* Amplification basse-fréquence : :math:`\lim_{\omega\to 0}|H(j\omega)|=|K|`,
 * Amplification haute-fréquence : :math:`\lim_{\omega\to \infty}|H(j\omega)|=0`.
-* Pulsation de coupure à -3dB : :math:`|H(j\omega_c)|=K/\sqrt{2}` pour :math:`\omega_c=\frac{1}{\tau}` rad/s.
-* Comportement asymptotique : Pour :math:`\omega \gg \omega_c`, :math:`|H(j\omega)|\approx K \left(\frac{\omega_c}{\omega}\right)`
+* Pulsation de coupure à -3dB : :math:`|H(j\omega_c)|=|K|/\sqrt{2}` pour :math:`\omega_c=\frac{1}{\tau}` rad/s.
+* Comportement asymptotique : Pour :math:`\omega \gg \omega_c`, :math:`|H(j\omega)|\approx K \left(\frac{\omega}{\omega_c}\right)^{-1}` (pente de -1)
 
 
 Argument
@@ -190,14 +175,16 @@ Argument
     plt.xlabel("$w$ [rad/s]")
     plt.ylabel("$\\arg[H(j\omega)]$");
 
-Pour :math:`K>0`, l'argument s'exprime sous la forme
+Pour :math:`K>0`, l'argument s'exprime sous la forme :
 
 .. math ::
 
     \arg[H(j\omega)]=-\arctan(\omega\tau)
 
-* Déphasage basse-fréquence : :math:`\lim_{\omega\to 0}\arg[H(j\omega)]=0`,
-* Déphasage haute-fréquence : :math:`\lim_{\omega\to \infty}\arg[H(j\omega)]=-90^o`.
+Nous obtenons alors les propriétés suivantes :
+
+* Déphasage basse-fréquences : :math:`\lim_{\omega\to 0}\arg[H(j\omega)]=0`,
+* Déphasage haute-fréquences : :math:`\lim_{\omega\to \infty}\arg[H(j\omega)]=-90^o`.
 * Déphasage à la pulsation de coupure à -3dB : :math:`\arg[H(j\omega_c)]=-45^o`.
 
 Identification
@@ -205,5 +192,5 @@ Identification
 
 L'identification graphique des paramètres s'obtient de la manière suivante:
 
-* Gain statique: le gain statique correspond au gain en basse-frequence :math:`K = 10^{G_0/20}`
-* Constante de temps: la constante de temps s'obtient à partir de la lecture de la pulsation de coupure :math:`\tau = 1/\omega_c`.
+* Gain statique: le gain statique correspond à la valeur du module en basse-fréquence. Si le module est affiché en dB, la valeur du module s'obtient via l'expression :math:`K = 10^{G_0/20}`. Attention à bien vérifier que la phase évolue de :math:`0` à :math:`-90^o`. Si ca n'est pas le cas, le gain est négatif. 
+* Constante de temps: la constante de temps s'obtient à partir de la lecture de la pulsation de coupure via l'expression :math:`\omega_c = 1/\tau`.
